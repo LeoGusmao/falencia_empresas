@@ -62,29 +62,30 @@ Objetivo: comparar vários algoritmos de forma padronizada na base original de t
 - Registrar a diferença entre a acurácia de treino e a acurácia de teste.
 - Exibir os 5 resultados da validação cruzada.
 - Registrar a diferença entre o maior e o menor valor da validação cruzada.
-- Exibir resultados em tabelas, incluindo uma tabela específica da classe `1`.
+- Exibir relatórios completos por modelo e comparar com foco especial na classe `1`.
 - Eleger o melhor modelo base sem balanceamento.
 
-## 7. Rodada de modelos base com balanceamento
+## 7. Rodada de modelos base com SMOTE
 
-Objetivo: repetir a comparação de modelos usando uma estratégia de balanceamento apenas no treino.
+Objetivo: repetir a comparação de modelos após ampliar a representatividade da classe minoritária no treino.
 
-- Aplicar a técnica de balanceamento escolhida apenas sobre os dados de treino.
+- Aplicar `SMOTE` apenas sobre os dados de treino.
 - Rodar novamente os mesmos 5 modelos base.
 - Reutilizar a mesma lógica de avaliação da etapa anterior.
-- Exibir resultados em tabelas, incluindo uma tabela específica da classe `1`.
-- Comparar os resultados com a rodada sem balanceamento.
-- Definir qual estratégia seguirá adiante: sem balanceamento ou com balanceamento.
+- Exibir relatórios completos por modelo e comparar com foco especial na classe `1`.
+- Comparar os resultados da rodada com SMOTE com a rodada sem balanceamento.
+- Definir qual trilha seguirá adiante para a otimização.
 
 ## 8. Otimização do melhor modelo da estratégia escolhida
 
 Objetivo: melhorar o melhor modelo encontrado na trilha vencedora antes do PCA.
 
 - Aplicar `GridSearchCV` no melhor modelo base da estratégia escolhida.
-- Buscar os melhores hiperparâmetros.
+- Buscar os melhores hiperparâmetros do modelo.
+- Quando fizer sentido para o algoritmo, permitir que a otimização teste também opções como `class_weight=None` e `class_weight='balanced'`.
+- Manter nessa etapa outras combinações de hiperparâmetros que já façam parte do modelo.
 - Avaliar o modelo otimizado.
-- Exibir os resultados finais em formato de tabela, evitando saída textual extensa.
-- Destacar em tabela as métricas da classe `1`, como `precision`, `recall`, `f1-score` e `support`.
+- Exibir os resultados finais em formato estruturado, destacando a classe `1`.
 - Registrar os resultados para comparação posterior.
 
 ## 9. PCA e escolha da dimensionalidade
@@ -104,7 +105,7 @@ Objetivo: repetir a comparação de modelos na base transformada por PCA.
 - Manter a estratégia vencedora escolhida antes do PCA.
 - Reutilizar a lógica da função `criacao_modelo` para manter a avaliação consistente.
 - Comparar os resultados dos modelos com PCA.
-- Exibir resultados em tabelas, incluindo uma tabela específica da classe `1`.
+- Exibir relatórios completos por modelo e comparar com foco especial na classe `1`.
 - Eleger o melhor modelo base com PCA.
 
 ## 11. Otimização do melhor modelo com PCA
@@ -113,9 +114,9 @@ Objetivo: melhorar o melhor modelo encontrado na trilha com PCA.
 
 - Aplicar `GridSearchCV` ao melhor modelo da base com PCA.
 - Buscar os melhores hiperparâmetros nessa nova configuração.
+- Quando fizer sentido para o algoritmo, permitir que a otimização teste também opções como `class_weight=None` e `class_weight='balanced'`.
 - Avaliar o modelo otimizado com PCA.
-- Exibir os resultados finais em formato de tabela, evitando saída textual extensa.
-- Destacar em tabela as métricas da classe `1`, como `precision`, `recall`, `f1-score` e `support`.
+- Exibir os resultados finais em formato estruturado, destacando a classe `1`.
 - Registrar os resultados para comparação com a trilha sem PCA.
 
 ## 12. Comparação final e conclusão
