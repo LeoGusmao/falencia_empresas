@@ -52,56 +52,77 @@ Objetivo: preparar os dados de forma adequada para a modelagem.
 - Organizar essas transformações de forma compatível com treino e teste.
 - Evitar vazamento de dados durante essa etapa.
 
-## 6. Rodada de modelos base
+## 6. Rodada de modelos base sem balanceamento
 
-Objetivo: comparar vários algoritmos de forma padronizada para eleger o melhor ponto de partida.
+Objetivo: comparar vários algoritmos de forma padronizada na base original de treino.
 
 - Definir uma função de apoio, como `criacao_modelo`, para concentrar a criação, o treino e a avaliação inicial dos modelos.
-- Rodar 5 modelos base sobre a mesma base pré-processada.
-- Para cada modelo, observar métricas iniciais de treino, teste e validação cruzada.
-- Exibir resultados de forma padronizada para facilitar a comparação.
-- Eleger o melhor modelo base sem PCA.
+- Rodar 5 modelos base sobre a mesma base pré-processada, sem técnica de balanceamento.
+- Para cada modelo, observar métricas de treino, teste e validação cruzada.
+- Registrar a diferença entre a acurácia de treino e a acurácia de teste.
+- Exibir os 5 resultados da validação cruzada.
+- Registrar a diferença entre o maior e o menor valor da validação cruzada.
+- Exibir resultados em tabelas, incluindo uma tabela específica da classe `1`.
+- Eleger o melhor modelo base sem balanceamento.
 
-## 7. Otimização do melhor modelo sem PCA
+## 7. Rodada de modelos base com balanceamento
 
-Objetivo: melhorar o melhor modelo encontrado na base original.
+Objetivo: repetir a comparação de modelos usando uma estratégia de balanceamento apenas no treino.
 
-- Aplicar `GridSearchCV` no melhor modelo base.
+- Aplicar a técnica de balanceamento escolhida apenas sobre os dados de treino.
+- Rodar novamente os mesmos 5 modelos base.
+- Reutilizar a mesma lógica de avaliação da etapa anterior.
+- Exibir resultados em tabelas, incluindo uma tabela específica da classe `1`.
+- Comparar os resultados com a rodada sem balanceamento.
+- Definir qual estratégia seguirá adiante: sem balanceamento ou com balanceamento.
+
+## 8. Otimização do melhor modelo da estratégia escolhida
+
+Objetivo: melhorar o melhor modelo encontrado na trilha vencedora antes do PCA.
+
+- Aplicar `GridSearchCV` no melhor modelo base da estratégia escolhida.
 - Buscar os melhores hiperparâmetros.
-- Avaliar o modelo otimizado na base sem PCA.
+- Avaliar o modelo otimizado.
+- Exibir os resultados finais em formato de tabela, evitando saída textual extensa.
+- Destacar em tabela as métricas da classe `1`, como `precision`, `recall`, `f1-score` e `support`.
 - Registrar os resultados para comparação posterior.
 
-## 8. PCA e escolha da dimensionalidade
+## 9. PCA e escolha da dimensionalidade
 
 Objetivo: criar uma segunda trilha de estudo com redução de dimensionalidade.
 
-- Aplicar PCA sobre a base já preparada para modelagem.
+- Aplicar PCA sobre a base já preparada segundo a estratégia vencedora.
 - Gerar o gráfico da variância explicada acumulada.
 - Usar uma técnica visual, como a do joelho, para apoiar a escolha do número de componentes.
 - Definir a quantidade de componentes a ser usada na trilha com PCA.
 
-## 9. Rodada de modelos base com PCA
+## 10. Rodada de modelos base com PCA
 
 Objetivo: repetir a comparação de modelos na base transformada por PCA.
 
 - Aplicar novamente os 5 modelos base, agora sobre os dados com PCA.
+- Manter a estratégia vencedora escolhida antes do PCA.
 - Reutilizar a lógica da função `criacao_modelo` para manter a avaliação consistente.
 - Comparar os resultados dos modelos com PCA.
+- Exibir resultados em tabelas, incluindo uma tabela específica da classe `1`.
 - Eleger o melhor modelo base com PCA.
 
-## 10. Otimização do melhor modelo com PCA
+## 11. Otimização do melhor modelo com PCA
 
 Objetivo: melhorar o melhor modelo encontrado na trilha com PCA.
 
 - Aplicar `GridSearchCV` ao melhor modelo da base com PCA.
 - Buscar os melhores hiperparâmetros nessa nova configuração.
 - Avaliar o modelo otimizado com PCA.
+- Exibir os resultados finais em formato de tabela, evitando saída textual extensa.
+- Destacar em tabela as métricas da classe `1`, como `precision`, `recall`, `f1-score` e `support`.
 - Registrar os resultados para comparação com a trilha sem PCA.
 
-## 11. Comparação final e conclusão
+## 12. Comparação final e conclusão
 
 Objetivo: consolidar o estudo e decidir qual abordagem foi melhor.
 
-- Comparar o melhor modelo otimizado sem PCA com o melhor modelo otimizado com PCA.
+- Comparar a melhor abordagem sem PCA com a melhor abordagem com PCA.
 - Observar ganhos, perdas e diferenças nas métricas principais.
+- Considerar especialmente os resultados da classe `1` na decisão final.
 - Registrar a conclusão final do estudo e a abordagem escolhida.
