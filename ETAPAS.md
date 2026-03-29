@@ -15,6 +15,10 @@ Objetivo: entender a estrutura geral do conjunto de dados.
 - Exibir as primeiras linhas com `head()`.
 - Verificar o tamanho da base com `shape`.
 - Listar colunas e tipos de dados.
+- Listar todas as colunas.
+- Para colunas `object` e `category`, verificar a quantidade de valores únicos.
+- Se uma coluna `object` ou `category` tiver até 5 valores únicos, listar esses valores.
+- Para colunas numéricas com até 5 valores únicos, listar esses valores, pois podem representar flags ou categorias codificadas.
 - Identificar a coluna target, isto é, a variável que indica falência da empresa.
 
 ## 3. Verificação da variável target
@@ -62,7 +66,12 @@ Objetivo: entender o balanceamento entre empresas falidas e não falidas.
 Objetivo: inspecionar a dispersão e detectar possíveis outliers.
 
 - Criar boxplots para variáveis numéricas relevantes.
+- Exibir as variáveis em blocos, para não poluir a visualização.
+- Permitir parametrizar a faixa de colunas exibidas, por exemplo com coluna inicial e final.
 - Comparar amplitude, mediana e presença de valores extremos.
+- Considerar que variáveis em escalas muito diferentes podem dificultar a leitura no mesmo gráfico.
+- Incluir, quando necessário, uma visualização complementar com variáveis padronizadas apenas para comparação visual entre escalas diferentes.
+- Gerar uma tabela com quantidade e percentual de outliers por coluna usando um critério simples, como IQR.
 - Usar essa etapa como apoio para decisões simples de limpeza.
 
 ## 9. Pré-processamento mínimo
@@ -72,14 +81,6 @@ Objetivo: preparar a base para a etapa de modelagem sem complexidade excessiva.
 - Separar variáveis preditoras (`X`) e variável target (`y`).
 - Garantir que apenas colunas adequadas sigam para o modelo.
 - Ajustar tipos de dados quando necessário.
-
-## 10. Tratamento simples de valores nulos
-
-Objetivo: resolver ausências de forma prática e consistente.
-
-- Aplicar uma estratégia simples para nulos, como preenchimento com média, mediana ou moda.
-- Escolher a abordagem conforme o tipo da variável.
-- Confirmar que a base final não possui faltas críticas.
 
 ## 11. Padronização dos dados
 
