@@ -1,0 +1,31 @@
+Projeto – Fundamentos de Machine Learning
+O objetivo deste projeto é colocar em prática os conceitos estudados em sala sobre:
+
+Pré-processamento de dados
+Aprendizado supervisionado e não supervisionado
+Regressão, classificação e clusterização
+Boas práticas em Machine Learning (overfitting, regularização, PCA, evitar vazamento de informações, tratamento de classes desbalanceadas, etc.)
+Tarefa
+Cada aluno deverá escolher um dataset de sua preferência (ex.: Kaggle, UCI Machine Learning Repository, IBGE, dados sintéticos gerados com IA, entre outros) e desenvolver um projeto de Machine Learning, contendo as seguintes etapas:
+
+Descrição do problema a ser resolvido (ex.: previsão, classificação, agrupamento).
+Pré-processamento dos dados: tratamento de valores ausentes, normalização/transformação, codificação de variáveis, análise exploratória.
+Definição da tarefa de aprendizado: supervisionado ou não supervisionado.
+Construção do modelo: escolha de algoritmos adequados (regressão, classificação, clusterização, etc.).
+Avaliação do modelo: utilização de métricas apropriadas ao problema.
+Aplicação de boas práticas conforme a necessidade:
+Evitar overfitting
+Validação adequada
+Regularização, quando necessário
+Tratamento de classes desbalanceadas
+Evitar vazamento de informações
+Observações
+O tema e o dataset são de livre escolha de cada aluno.
+O projeto pode ser entregue em formato de notebook (Jupyter/Google Colab) com explicações e códigos ou PDF.
+Lembre-se: mais importante do que a complexidade do modelo é a aplicação correta dos fundamentos que vimos na disciplina.
+
+
+Observações principais para este projeto
+
+Tentar encontrar melhor parâmetro - Grid search, busca baesiana, etc
+Interpretar melhor a métrica - recall tá bom, se deu com diferença, se está com overfitting
