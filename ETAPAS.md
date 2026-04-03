@@ -62,7 +62,7 @@ Objetivo: comparar vários algoritmos de forma padronizada na base original de t
 - Registrar a diferença entre a acurácia de treino e a acurácia de teste.
 - Exibir os 5 resultados da validação cruzada.
 - Registrar a diferença entre o maior e o menor valor da validação cruzada.
-- Exibir relatórios completos por modelo e comparar com foco especial na classe `1`.
+- Exibir relatórios completos por modelo e comparar com foco especial na identificação de empresas falidas.
 - Eleger o melhor modelo base sem balanceamento.
 
 ## 7. Rodada de modelos base com SMOTE
@@ -72,8 +72,8 @@ Objetivo: repetir a comparação de modelos após ampliar a representatividade d
 - Aplicar `SMOTE` apenas sobre os dados de treino.
 - Rodar novamente os mesmos 5 modelos base.
 - Reutilizar a mesma lógica de avaliação da etapa anterior.
-- Exibir relatórios completos por modelo e comparar com foco especial na classe `1`.
-- Comparar os resultados da rodada com SMOTE com a rodada sem balanceamento.
+- Exibir relatórios completos por modelo e comparar com foco especial na identificação de empresas falidas.
+- Comparar os resultados da rodada com `SMOTE` com a rodada sem balanceamento.
 - Definir qual trilha seguirá adiante para a otimização.
 
 ## 8. Otimização do melhor modelo da estratégia escolhida
@@ -85,7 +85,7 @@ Objetivo: melhorar o melhor modelo encontrado na trilha vencedora antes do PCA.
 - Quando fizer sentido para o algoritmo, permitir que a otimização teste também opções como `class_weight=None` e `class_weight='balanced'`.
 - Manter nessa etapa outras combinações de hiperparâmetros que já façam parte do modelo.
 - Avaliar o modelo otimizado.
-- Exibir os resultados finais em formato estruturado, destacando a classe `1`.
+- Exibir os resultados finais em formato estruturado, com foco especial na identificação de empresas falidas.
 - Registrar os resultados para comparação posterior.
 
 ## 9. PCA e escolha da dimensionalidade
@@ -103,9 +103,9 @@ Objetivo: repetir a comparação de modelos na base transformada por PCA.
 
 - Aplicar novamente os 5 modelos base, agora sobre os dados com PCA.
 - Manter a estratégia vencedora escolhida antes do PCA.
-- Reutilizar a lógica da função `criacao_modelo` para manter a avaliação consistente.
+- Manter a mesma lógica de avaliação da etapa sem PCA para preservar a comparação entre resultados.
 - Comparar os resultados dos modelos com PCA.
-- Exibir relatórios completos por modelo e comparar com foco especial na classe `1`.
+- Exibir relatórios completos por modelo e comparar com foco especial na identificação de empresas falidas.
 - Eleger o melhor modelo base com PCA.
 
 ## 11. Otimização do melhor modelo com PCA
@@ -116,7 +116,7 @@ Objetivo: melhorar o melhor modelo encontrado na trilha com PCA.
 - Buscar os melhores hiperparâmetros nessa nova configuração.
 - Quando fizer sentido para o algoritmo, permitir que a otimização teste também opções como `class_weight=None` e `class_weight='balanced'`.
 - Avaliar o modelo otimizado com PCA.
-- Exibir os resultados finais em formato estruturado, destacando a classe `1`.
+- Exibir os resultados finais em formato estruturado, com foco especial na identificação de empresas falidas.
 - Registrar os resultados para comparação com a trilha sem PCA.
 
 ## 12. Comparação final e conclusão
@@ -125,5 +125,5 @@ Objetivo: consolidar o estudo e decidir qual abordagem foi melhor.
 
 - Comparar a melhor abordagem sem PCA com a melhor abordagem com PCA.
 - Observar ganhos, perdas e diferenças nas métricas principais.
-- Considerar especialmente os resultados da classe `1` na decisão final.
+- Considerar especialmente os resultados ligados à identificação de empresas falidas na decisão final.
 - Registrar a conclusão final do estudo e a abordagem escolhida.
